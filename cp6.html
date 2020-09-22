@@ -72,26 +72,17 @@
             </div>
         </div>
         <script>
-            // $(".navbar a").click(function () {
-            //     $(".modal").addClass("animateOpen").css({
-            //         display: "flex",
-            //     });
-            // });
-            // $(".close").click(function () {
-            //     $(".modal").addClass("animateClose").css({
-            //         display: "none",
-            //     });
-            // });
-            // );
-            var open = document.querySelector(".navbar a");
+            var open = document.querySelectorAll(".navbar a");
             var close = document.querySelector(".close");
-            open.addEventListener("click", function () {
-                $(".modal").addClass("animateOpen").css({
-                    display: "flex",
+            open.forEach((element) => {
+                element.addEventListener("click", function () {
+                    $(".modal").addClass("animateOpen").css({
+                        display: "flex",
+                    });
+                    setTimeout(function () {
+                        $(".modal").removeClass("animateOpen");
+                    }, 750);
                 });
-                setTimeout(function () {
-                    $(".modal").removeClass("animateOpen");
-                }, 750);
             });
             close.addEventListener("click", function () {
                 $(".modal").addClass("animateClose");
