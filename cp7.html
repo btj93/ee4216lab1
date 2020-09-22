@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="cp7.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <h1>My CityU Website</h1>
+            <p>With a <b>flexible</b> and <b>responsive</b> layout.</p>
+        </header>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <a
+                src="https://live.staticflickr.com/1728/42736240511_91cd425b59_c_d.jpg"
+                >Link 1</a
+            >
+            <a
+                src="https://live.staticflickr.com/1945/45582150001_7bda8a2ee0_c_d.jpg"
+                >Link 2</a
+            >
+            <a href="#">Link 3</a>
+            <a href="#">Link 4</a>
+        </nav>
+        <!-- The flexible grid (content) -->
+        <div class="row">
+            <!-- side content and main content here -->
+            <aside class="side">
+                <h2>About Me</h2>
+                <h5>Photo of me:</h5>
+                <div class="fakeimg" style="height: 60px">Image</div>
+                <br />
+                <div class="fakeimg" style="height: 60px">Image</div>
+                <br />
+                <div class="fakeimg" style="height: 60px">Image</div>
+            </aside>
+
+            <main class="main">
+                <section class="section">
+                    <h2>TITLE HEADING</h2>
+                    <h5>Title description, Dec 7, 2019</h5>
+                    <div class="fakeimg" style="height: 200px">Image</div>
+                    <p>Some text..</p>
+                    <p>
+                        Sunt in culpa qui officia deserunt mollit anim id est
+                        laborum consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut
+                        enim ad minim veniam, quis nostrud exercitation ullamco.
+                    </p>
+                </section>
+
+                <br />
+
+                <section class="section">
+                    <h2>TITLE HEADING</h2>
+                    <h5>Title description, Sep 2, 2019</h5>
+                    <div class="fakeimg" style="height: 200px">Image</div>
+                    <p>Some text..</p>
+                    <p>
+                        Sunt in culpa qui officia deserunt mollit anim id est
+                        laborum consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut
+                        enim ad minim veniam, quis nostrud exercitation ullamco.
+                    </p>
+                </section>
+            </main>
+        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <h2>Footer</h2>
+        </footer>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!--Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+        </div>
+        <script>
+            var open = document.querySelectorAll(".navbar a");
+            var close = document.querySelector(".close");
+            open.forEach((element) => {
+                var img = document.createElement("img");
+                img.src = element.getAttribute("src");
+                img.alt = "image";
+                img.id = "large-img";
+                element.addEventListener("click", function () {
+                    document.querySelector(".modal-content").appendChild(img);
+                    $(".modal").addClass("animateOpen").css({
+                        display: "flex",
+                    });
+                    setTimeout(function () {
+                        $(".modal").removeClass("animateOpen");
+                    }, 750);
+                });
+            });
+            close.addEventListener("click", function () {
+                var list = document.querySelector(".modal-content");
+                $(".modal").addClass("animateClose");
+                setTimeout(function () {
+                    $(".modal").removeClass("animateClose");
+                    $(".modal").css({
+                        display: "none",
+                    });
+                    list.removeChild(document.getElementById("large-img"));
+                }, 750);
+            });
+        </script>
+    </body>
+</html>
